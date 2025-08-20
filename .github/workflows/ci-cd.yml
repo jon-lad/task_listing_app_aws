@@ -3,11 +3,14 @@ name: CI/CD
 on:
   # Choose your workflow strategy!
   pull_request:
+    types:
+      - closed
     branches:
       - main
 
 jobs:
   buildAndTest:
+    if: github.event.pull_request.merged == true
     name: CI Pipeline
     runs-on: ubuntu-latest
 
