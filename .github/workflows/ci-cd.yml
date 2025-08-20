@@ -34,7 +34,7 @@ jobs:
           postgresql password: ${{ env.POSTGRES_PASSWORD }}
 
       - name: Install Angular dependencies
-        run: npm ci
+        run: npm ci --silent
 
       - name: Run Angular Tests
         run: npm run test:coverage
