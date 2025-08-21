@@ -6,6 +6,12 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'postgres',
     operatorsAliases: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // for RDS self-signed certs
+      }
+    }
   },
   test: {
     username: process.env.POSTGRES_USER || 'test', // Fallback to 'test' if not set
